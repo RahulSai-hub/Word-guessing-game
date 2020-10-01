@@ -8,6 +8,14 @@ class UserInput extends Component{
             data:this.state.data
         })
     }
+    handleSubmit=()=>{
+        if(this.state.data){
+            this.props.setAnsswer(this.state.data);
+            this.setState({
+                data:''
+            })
+        }
+    }
     render(){
         return(
             <View style={{flex:1,flexDirection:'colomn'}}>
