@@ -29,14 +29,9 @@ class Maincomponent extends Component {
         return(
             <View style= {styles.container1}>
                 <UserInput setAnswer= {this.setAnswer}/>
-               
-            
-            <View style={styles.container}>
                 <Fetchword setCurrentWord={this.setCurrentWord}/>
-                
-            </View>
-            <Text>{this.state.UserAnswer}</Text>
-            <Text>{this.state.CurrentWord}</Text>
+            <Text style={styles.userword}>{this.state.UserAnswer}</Text>
+            <Text style={styles.apidata}> The fetched word from api is:{this.state.CurrentWord}</Text>
             </View>
         )
     }
@@ -49,6 +44,18 @@ const styles=StyleSheet.create({
         borderRadius:10,
        
     },
+    userword:{
+        marginTop:200,
+        fontWeight:'bold',
+        fontFamily:'cursive',
+        marginLeft:20
+    },
+    apidata:{
+        marginTop:150,
+        fontWeight:'bold',
+        fontFamily:'cursive',
+        marginLeft:20
+    }
     
 })
 export default Maincomponent;
