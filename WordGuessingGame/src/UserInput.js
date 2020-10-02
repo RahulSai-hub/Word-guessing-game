@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         flex: 5,
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginTop:100
     },
     
     label: {
@@ -44,8 +45,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderRadius: 1,
         alignItems:'center',
-        marginTop:20,
-        padding:30
+        padding:10
     }
 })
 export default UserInput;
