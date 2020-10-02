@@ -22,13 +22,17 @@ const UserInput=({setAnswer})=>{
                 <View style={styles.container}>
                     <TextInput style={styles.label} placeholder="Enter the answer(word)!!"
                     onChangeText={(text)=> setData({text})}
+                    value={data}
                     />
                 </View>
                 <View style={styles.buttonContainer}>
                     <TouchableHighlight style={styles.button}
                     onPress={handlePress}
                     >
-                        <View style={styles.buttoncontainer}>
+                        
+                        
+                        <View style={styles.buttoncontainer} >
+                        
                         <Text style={{ fontSize: 18, color: 'white' }}>Submit</Text>
                         </View>
                     </TouchableHighlight>
@@ -47,16 +51,18 @@ const styles = StyleSheet.create({
         marginTop:100
     },
     buttonContainer:{
-        //flex: 1,
-        //justifyContent: "center",
+        flex: 1,
+        justifyContent: "center",
         paddingHorizontal:100
     },
     buttoncontainer:{
-        alignItems: "center",
-        backgroundColor: "#DDDDDD",
-        padding: 30,
+        margin: 30,
+        width: 80,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
         backgroundColor:'green',
-        marginTop:50
+        borderRadius: 10,
     },
     label: {
         height: 40,
