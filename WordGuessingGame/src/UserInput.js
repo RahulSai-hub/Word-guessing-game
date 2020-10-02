@@ -1,0 +1,51 @@
+import React,{useState} from 'react';
+import {Text,View,TextInput,StyleSheet,TouchableHighlight} from 'react-native';
+const UserInput=({setAnswer})=>{
+    
+    const[data,setData]=useState();
+    /*const handleChange=()=>{
+        setData({
+            data:data
+        })
+    }*/
+    /*const handleSubmit=()=>{
+        if(data){
+            setAnswer(data);
+            setData({
+                data:''
+            })
+        }
+    }*/
+    return (
+        <View>
+            <View style={{ flex: 1, flexDirection: 'column' }}>
+                <View style={styles.container}>
+                    <TextInput style={styles.label} placeholder="Enter the answer(word)!!"
+                    onChangeText={(text)=> setData({text})}
+                    />
+                </View>
+                
+            </View>
+        </View>
+    )
+}
+const styles = StyleSheet.create({
+    container: {
+        flex: 5,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    
+    label: {
+        height: 40,
+        width: 250,
+        borderColor: 'black',
+        borderWidth: 3,
+        borderRadius: 1,
+        alignItems:'center',
+        marginTop:20,
+        padding:30
+    }
+})
+export default UserInput;
