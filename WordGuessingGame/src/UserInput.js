@@ -44,11 +44,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     button: {
-        marginTop: 250,
+        margin: 10,
         width: 80,
         height: 40,
-        marginLeft:0,
-        marginRight:30,
+        marginTop:200,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'green',
@@ -58,7 +57,6 @@ const styles = StyleSheet.create({
         height: 40,
         width: 250,
         marginTop:100,
-        paddingLeft:10,
         marginLeft:250,
         borderColor: 'black',
         borderWidth: 3,
