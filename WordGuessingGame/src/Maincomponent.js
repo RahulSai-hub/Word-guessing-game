@@ -3,6 +3,7 @@ import { Text, View, StyleSheet } from 'react-native';
 import Fetchword from './Fetchword';
 import UserInput from './UserInput';
 import FetchData from './FetchData';
+import Displayuserinputs from './DisplayUserinputs';
 class Maincomponent extends Component {
     constructor(props) {
         super(props);
