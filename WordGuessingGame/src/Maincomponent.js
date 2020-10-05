@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Fetchword from './Fetchword';
 import UserInput from './UserInput';
+import FetchData from './FetchData';
 class Maincomponent extends Component {
     constructor(props) {
         super(props);
@@ -48,7 +49,9 @@ const styles=StyleSheet.create({
         marginTop:200,
         fontWeight:'bold',
         fontFamily:'cursive',
-        marginLeft:20
+        marginLeft:300
+
+        
     },
     apidata:{
         marginTop:150,
