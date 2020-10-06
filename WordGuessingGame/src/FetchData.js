@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Display from './DisplayHints.js';
+import Displayhints from './Displayhints.js';
 class FetchData extends Component {
     state = {
         allData: '',
@@ -55,7 +55,7 @@ class FetchData extends Component {
     render() {
         if (this.props.indexToShowHistory != -1) {
             return (
-                <Display
+                <Displayhints
                     setSynonymAsHints={this.setSynonymAsHints}
                     setRevealHintsForAll={this.setRevealHintsForAll}
                     currentWordHistory={this.props.currentWordHistory}
@@ -69,7 +69,7 @@ class FetchData extends Component {
             )
         } else {
             return (
-                <Display
+                <Displayhints
                     setRevealHintsForAll={this.setRevealHintsForAll}
                     setTypesofData={this.setTypesofData}
                     indexToShow={this.props.indexToShowHistory}
