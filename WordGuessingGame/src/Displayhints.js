@@ -64,6 +64,65 @@ class Displayhints extends Component {
         this.props.setDataForAllWords(this.state.singleArray);
         this.props.setTypesofData(this.state.types);
     }
+    hintsNotPresent(data, index) {
+        return (
+            <View style={styles.style1}>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <View style={{ width: '70%' }}>
+                        <Text key={index}>{data[index]}</Text>
+                    </View>
+                    <View>
+                        <Text key={index + 1}>Points:-{this.state.scores[index]} </Text>
+                    </View>
+                </View>
+                <TouchableHighlight style={styles.WordsButton}
+                    onPress={() => { this.handlesubmit(index) }}
+                ><Text style={{ color: '#FFFFFF' }}>Hint</Text></TouchableHighlight>
+            </View>
+        )
+    }
+    hintsNotPresentForHistory(data, index, item) {
+        return (
+            <View style={styles.styles2}>
+                <Text key={index}>{data[index]}</Text>
+                <Text key={index + 1} style={{ padding: 3 }}> {item} </Text>
+            </View>
+        )
+    }
+    FirstHintToDisplay(data, index, item) {
+        return (
+            <View style={styles.styles3}>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <View style={{ width: '70%' }}>
+                        <Text key={index}>{data[index]}</Text>
+                    </View>
+                    <View>
+                        <Text key={index + 1}>Free </Text>
+                    </View>
+                </View>
+                <View >
+                    <Text>{item}</Text>
+                </View>
+            </View>
+        )
+    }
+    hintsPresent(data, index, item) {
+        return (
+            <View style={styles.styles3}>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <View style={{ width: '70%' }}>
+                        <Text key={index}>{data[index]}</Text>
+                    </View>
+                    <View>
+                        <Text key={index + 1} >Points:-{this.state.scores[index]} </Text>
+                    </View>
+                </View>
+                <View>
+                    <Text>{item}</Text>
+                </View>
+            </View>
+        )
+    }
     render() {
         if (this.props.indexToShow !== -1) {
             if (this.props.currentWordHistory === true) {
@@ -141,3 +200,48 @@ class Displayhints extends Component {
     }
 }
 export default Displayhints;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingHorizontal: 10
+    },
+    WordsButton: {
+        width: 50,
+        height: 25,
+        marginTop: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 8,
+        backgroundColor: 'lightsteelblue'
+    },
+    style1: {
+        flex: 1,
+        flexDirection: 'column',
+        padding: 10,
+        margin: 1,
+        borderRadius: 7,
+        borderColor: 'black',
+        borderWidth: 2
+    },
+    styles2: {
+        padding: 10,
+        margin: 1,
+        borderRadius: 7,
+        backgroundColor: '#FFFFFF',
+        borderColor: 'pink',
+        borderWidth: 2
+    },
+    styles3: {
+        flex: 1,
+        flexDirection: 'column',
+        padding: 30,
+        margin: 1,
+        borderRadius: 7,
+        backgroundColor: 'slategray',
+        borderColor: '#808080',
+        borderWidth: 2
+    },
+})
+
