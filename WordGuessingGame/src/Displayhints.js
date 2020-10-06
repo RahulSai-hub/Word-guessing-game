@@ -21,6 +21,49 @@ class Displayhints extends Component {
             this.props.setSynonymAsHints(this.state.singleArray[e])
         }
     }
+    createList() {
+        this.state.singleArray = [];
+        this.state.scores = [];
+        for (let i = 0; i < this.props.totalData.length; i++) {
+            if (i === 1 || i === 2) {
+                for (let j = 0; j < this.props.totalData[i].length; j++) {
+                    this.state.singleArray.push(this.props.totalData[i][j]);
+                    if (i === 1) {
+                        this.state.types.push('Synonym:');
+                    } else {
+                        this.state.types.push('Antonym:');
+                    }
+                    this.state.scores.push(2);
+                }
+            } else {
+                for (let j = 0; j < this.props.totalData[i].length; j++) {
+                    if (j === 1) {
+                        this.state.types.push('FirstLetter:');
+                        this.state.singleArray.push(this.props.currentWord[0]);
+                        this.state.scores.push(3);
+                    }
+                    if (j === 2) {
+                        this.state.types.push('JumbleWord');
+                        let word = this.props.currentWord.split('');
+                        word = word.sort();
+                        word = word.join('-')
+                        this.state.singleArray.push(word);
+                        this.state.scores.push(7);
+                    }
+                    if (j == 4) {
+                        this.state.types.push('LastLetter:');
+                        this.state.singleArray.push(this.props.currentWord[this.props.currentWord.length - 1]);
+                        this.state.scores.push(3);
+                    }
+                    this.state.types.push('Definition:');
+                    this.state.singleArray.push(this.props.totalData[i][j].text);
+                    this.state.scores.push(2);
+                }
+            }
+        }
+        this.props.setDataForAllWords(this.state.singleArray);
+        this.props.setTypesofData(this.state.types);
+    }
     render() {
         if (this.props.indexToShow !== -1) {
             if (this.props.currentWordHistory === true) {
