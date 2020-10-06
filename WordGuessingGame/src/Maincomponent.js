@@ -12,6 +12,25 @@ class Maincomponent extends Component {
             Score: 0, 
             CurrentWord: '',
             UserAnswer: '',
+
+            currrentWordAnswerList: [],
+            synonymsAsHints: [], 
+            synonymsListCurrent: [], 
+            completedCount: -1, 
+            currentWordScore: 0, 
+            currentWordAnswerStatus: [], 
+            colors: [],
+            colorsForAnswerList: [[]],
+            statusForInput: '' ,
+            completedWordsScore: [],
+            completedWordsForHistory: [],
+            indexToShowHistory: -1,
+            typesofHints: [[]],  
+            RevealedHintsForAll: [[]],
+            completedWordAnswerList: [[]],
+            currentWordHistory: false,
+
+            
             
         }
     }
