@@ -10,6 +10,17 @@ class Displayhints extends Component {
         Hints: [],  
         currentWord: '',
     }
+    handlesubmit=(e)=>{
+        this.state.Hints.push(e);
+        this.props.setRevealHintsForAll(this.state.Hints)
+        this.setState({
+            Hints: [...this.state.Hints]
+        });
+        this.props.setScore(this.state.scores[e]);
+        if (this.state.types[e] ==='Synonym:') {
+            this.props.setSynonymAsHints(this.state.singleArray[e])
+        }
+    }
     render() {
         if (this.props.indexToShow !== -1) {
             if (this.props.currentWordHistory === true) {
