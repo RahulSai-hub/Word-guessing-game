@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text,TextInput View, StyleSheet } from 'react-native';
 import Fetchword from './Fetchword';
 import UserInput from './UserInput';
 import FetchData from './FetchData';
@@ -47,38 +47,74 @@ class Maincomponent extends Component {
         })
     }
     render(){
-        return(
-            <View style= {styles.container1}>
-                <UserInput setAnswer= {this.setAnswer}/>
-                <Fetchword setCurrentWord={this.setCurrentWord}/>
-            <Text style={styles.userword}>{this.state.UserAnswer}</Text>
-            <Text style={styles.apidata}> The fetched word from api is:{this.state.CurrentWord}</Text>
-            </View>
-        )
+        if (this.state.CurrentWord) {
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.textScore}>Score:{this.state.Score}</Text>
+                    <Text style={styles.textTitle}>Guess The Word!!</Text>
+                    <View style={styles.userInputPage}>
+                        <UserInput setAnswer={this.setAnswer} />
+                        <Text style={{ fontSize: 20 }}>{this.state.statusForInput}</Text>
+                    </View>
+                    <View style={styles.Guesses}>
+                        <DisplayUserInputs
+                            userAnswerList={this.state.currrentWordAnswerList}
+                            indexToShowHistory={this.state.indexToShowHistory}
+                            completedWordAnswerList={this.state.completedWordAnswerList}
+                            currentWordHistory={this.state.currentWordHistory}
+                            colorsForAnswerList={this.state.colorsForAnswerList}
+                        />
+                    </View>
+                </View>
+            )
+        }
+        else {
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.textScore}>Score:{this.state.Score}</Text>
+                    <Text style={styles.textTitle}>Guess The Word</Text>
+                    <View style={styles.userInputPage}>
+                        <UserInput />
+                    </View>
+                </View>    
+            )
     }
 }
 const styles=StyleSheet.create({
-    container:{
-        flex:1,
-        margin:1,
-        marginLeft:50,
-        borderRadius:10,
-       
+    container: {
+        flex: 1,
+        margin: 4,
+        flexDirection: 'column',
+        backgroundColor:'darkslategrey',
+        borderRadius: 5
     },
-    userword:{
-        marginTop:200,
-        fontWeight:'bold',
-        fontFamily:'cursive',
-        marginLeft:300
-
-        
+    userInputPage: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 'auto',
+        height: 80,
+        marginTop: '5%',
+        backgroundColor: 'slategray',
+        borderColor: 'darkgray',
     },
-    apidata:{
-        marginTop:150,
-        fontWeight:'bold',
+    textScore: {
+        textAlign: 'right',
+        marginRight: '5%',
+        fontSize: 20,
+        fontWeight:'bold'
+    },
+    textTitle: {
+        textAlign: 'center',
+        padding: 3,
+        fontSize: 30,
         fontFamily:'cursive',
-        marginLeft:20
+        backgroundColor: '#ffff'
+    },
+    Guesses: {
+        width: 'auto',
+        marginTop: '1%',
+        borderRadius: 4,
+        padding: 3
     }
-    
-})
+});
 export default Maincomponent;
