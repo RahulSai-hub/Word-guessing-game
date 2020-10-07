@@ -39,13 +39,55 @@ class Maincomponent extends Component {
         if (word != '') {
             this.setState({
                 CurrentWord: word,
+                currentWordScore: 0,
+                indexToShowHistory: -1,
+                completedCount: this.state.completedCount + 1
             })
         }
     }
-    setAnswer= (userinput)=>{
-        this.setState=({
-            UserAnswer:userinput
-        })
+    setAnswer = (userInput) => {
+        userInput = userInput.toLowerCase();
+        this.state.currrentWordAnswerList.push(userInput);
+        if (userInput === this.state.CurrentWord) {
+            this.state.completedWordsForHistory.push(this.state.CurrentWord);
+            this.state.completedWordsScore.push(this.state.currentWordScore + 10);
+            this.state.completedWordAnswerList[this.state.completedCount] = this.state.currrentWordAnswerList
+            this.state.colors[this.state.completedCount] = '#46fa64';
+            this.state.currentWordAnswerStatus.push('#46fa64');
+            this.state.colorsForAnswerList[this.state.completedCount] = this.state.currentWordAnswerStatus;
+            this.setState({
+                Score: this.state.Score + 10,
+                currrentWordAnswerList: [],
+                CurrentWord: '',
+                currentWordAnswerStatus: [],
+                statusForInput: ''
+            });
+
+        }
+        else if (this.state.synonymsListCurrent.includes(userInput) && (!(this.state.synonymsAsHints.includes(userInput)))) {
+            this.state.completedWordsForHistory.push(this.state.CurrentWord);
+            this.state.completedWordsScore.push(this.state.currentWordScore + 10);
+            this.state.completedWordAnswerList[this.state.completedCount] = this.state.currrentWordAnswerList
+            this.state.colors[this.state.completedCount] = '#46fa64';
+            this.state.currentWordAnswerStatus.push('#46fa64');
+            this.state.colorsForAnswerList[this.state.completedCount] = this.state.currentWordAnswerStatus;
+            this.setState({
+                Score: this.state.Score + 10,
+                currrentWordAnswerList: [],
+                CurrentWord: '',
+                currentWordAnswerStatus: [],
+                statusForInput: ''
+            });
+        }
+        else {
+            this.state.currentWordAnswerStatus.push('#fa4646');
+            this.setState({
+                Score: this.state.Score - 2,
+                currentWordScore: this.state.currentWordScore - 2,
+                statusForInput: 'Wrong Answer'
+
+            });
+        }
     }
     render(){
         if (this.state.CurrentWord) {
