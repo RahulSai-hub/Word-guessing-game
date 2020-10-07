@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Text,TextInput View, StyleSheet } from 'react-native';
+import { Text,TextInput ,View, StyleSheet } from 'react-native';
 import Fetchword from './Fetchword';
 import UserInput from './UserInput';
 import FetchData from './FetchData';
 import Displayuserinputs from './DisplayUserinputs';
+import Historycomponent from './Historycomponent';
 class Maincomponent extends Component {
     constructor(props) {
         super(props);
@@ -65,6 +66,38 @@ class Maincomponent extends Component {
                             colorsForAnswerList={this.state.colorsForAnswerList}
                         />
                     </View>
+                    <View style={{ flex: 2, flexDirection: 'row' }}>
+                        <View style={{ width: '60%', marginTop: '5%' }}>
+                            <FetchData
+                                settotalData={this.settotalData}
+                                setSynonymsofCurrentWord={this.setSynonymsofCurrentWord}
+                                setScore={this.setScore}
+                                setSynonymAsHints={this.setSynonymAsHints}
+                                setRevealHintsForAll={this.setRevealHintsForAll}
+                                setTypesofData={this.setTypesofData}
+
+                                dataForAllWords={this.state.allData}
+                                currentWordHistory={this.state.currentWordHistory}
+                                RevealedHints={this.state.RevealedHintsForAll}
+                                typesofHints={this.state.typesofHints}
+                                indexToShowHistory={this.state.indexToShowHistory}
+                                currentWord={this.state.CurrentWord}
+                            />
+                        </View>
+                        <View style={{ marginLeft: 2, marginTop: '5%', width: '40%', height: 'auto' }}>
+                            <Historycomponent
+                                skipCurrent={this.skipCurrent}
+                                resetGame={this.resetGame}
+                                completedWordsForHistory={this.state.completedWordsForHistory}
+
+                                color={this.state.colors}
+                                setindexToShowHistory={this.setindexToShowHistory}
+
+                                currentWordScore={this.state.currentWordScore}
+                                completedWordsScore={this.state.completedWordsScore}
+                            />
+                        </View>
+                    </View>
                 </View>
             )
         }
@@ -78,6 +111,7 @@ class Maincomponent extends Component {
                     </View>
                 </View>    
             )
+        }
     }
 }
 const styles=StyleSheet.create({
