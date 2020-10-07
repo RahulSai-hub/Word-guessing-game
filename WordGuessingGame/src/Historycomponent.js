@@ -11,6 +11,27 @@ class Historycomponent extends Component {
             skip:'Get New Word\n(-4 pts)'
         }
     }
+     
+    resetGame = (e) => {
+        this.props.resetGame();
+    }
+    setIndex = (e) => {
+        this.props.setindexToShowHistory(e);
+         if(e===this.props.completedWordsForHistory.length){
+            this.setState({ 
+                currentPosition:-1,
+                currentSize:3
+             });
+        }else{
+            this.setState({ 
+                currentPosition:e,
+                currentSize:1
+             });
+        }
+    }
+    skipWord = () => {
+        this.props.skipCurrent();
+    }
     render() {
         return (
             <ScrollView>
