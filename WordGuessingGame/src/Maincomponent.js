@@ -89,6 +89,12 @@ class Maincomponent extends Component {
             });
         }
     }
+    setScore = (points) => {
+        this.setState({
+            Score: this.state.Score - points,
+            currentWordScore: this.state.currentWordScore - points,
+        })
+    }
     render(){
         if (this.state.CurrentWord) {
             return (
