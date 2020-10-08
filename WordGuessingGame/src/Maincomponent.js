@@ -120,6 +120,57 @@ class Maincomponent extends Component {
             currentWordScore: this.state.currentWordScore - points,
         })
     }
+    setSynonymsofCurrentWord = (response) => {
+        this.setState({
+            synonymsListCurrent: response
+        });
+    }
+    setSynonymAsHints = (response) => {
+        this.state.synonymsAsHints.push(response)
+    }
+    setTypesofData = (e) => {
+        this.state.typesofHints[this.state.completedCount] = [...e]
+    }
+    setRevealHintsForAll = (e) => {
+        this.state.RevealedHintsForAll[this.state.completedCount] = [...e]
+    }
+    setindexToShowHistory = (e) => {
+        console.log(this.state.allData.length)
+        if (e === this.state.completedWordsForHistory.length) {
+            this.setState({
+                indexToShowHistory: e,
+                currentWordHistory: true
+            });
+        } else {
+            this.setState({
+                indexToShowHistory: e,
+                currentWordHistory: false
+            });
+        }
+    }
+    settotalData = (response) => {
+        if (response !== undefined) {
+            this.state.allData[this.state.completedCount] = [...response]
+        }
+    }
+    skipCurrent = () => {
+        if (this.state.CurrentWord != '' && this.state.allData[this.state.completedCount] != '') {
+            this.state.completedWordsForHistory.push(this.state.CurrentWord);
+            this.state.completedWordsScore.push(this.state.currentWordScore - 4);
+            this.state.colors[this.state.completedCount] = '#fa4646';
+            this.state.currentWordAnswerStatus.push('#fa4646');
+            this.state.colorsForAnswerList[this.state.completedCount] = this.state.currentWordAnswerStatus;
+            this.state.completedWordAnswerList[this.state.completedCount] = this.state.currrentWordAnswerList
+            this.setState({
+                Score: this.state.Score - 4,
+                CurrentWord: '',
+                currrentWordAnswerList: [],
+                userAnswer: '',
+                currentWordAnswerStatus: [],
+                statusForInput: ''
+            })
+        }
+    }
     render(){
         if (this.state.CurrentWord) {
             return (
