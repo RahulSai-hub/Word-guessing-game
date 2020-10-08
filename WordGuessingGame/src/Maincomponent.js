@@ -13,7 +13,6 @@ class Maincomponent extends Component {
             Score: 0, 
             CurrentWord: '',
             UserAnswer: '',
-
             currrentWordAnswerList: [],
             synonymsAsHints: [], 
             synonymsListCurrent: [], 
@@ -255,7 +254,7 @@ class Maincomponent extends Component {
 const styles=StyleSheet.create({
     container: {
         flex: 1,
-        margin: 4,
+        margin: 0,
         flexDirection: 'column',
         backgroundColor:'darkslategrey',
         borderRadius: 5
@@ -264,29 +263,33 @@ const styles=StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: 'auto',
-        height: 80,
+        height: 60,
         marginTop: '5%',
-        backgroundColor: 'slategray',
-        borderColor: 'darkgray',
+        backgroundColor: 'darkslategrey',
+        borderColor: 'red',
     },
-    textScore: {
-        textAlign: 'right',
-        marginRight: '5%',
-        fontSize: 20,
-        fontWeight:'bold'
-    },
+    
     textTitle: {
         textAlign: 'center',
         padding: 3,
         fontSize: 30,
         fontFamily:'cursive',
-        backgroundColor: '#ffff'
+        backgroundColor: 'maroon',
+        fontWeight:'bold',
+        color:'white'
     },
     Guesses: {
         width: 'auto',
         marginTop: '1%',
         borderRadius: 4,
         padding: 3
-    }
+    },
+    textScore: {
+        textAlign: 'right',
+        marginRight: '5%',
+        fontSize: 25,
+        color:'white',
+        fontWeight:'bold'
+    },
 });
 export default Maincomponent;
