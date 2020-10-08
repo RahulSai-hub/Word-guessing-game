@@ -64,31 +64,7 @@ class Displayhints extends Component {
         this.props.setDataForAllWords(this.state.singleArray);
         this.props.setTypesofData(this.state.types);
     }
-    hintsNotPresent(data, index) {
-        return (
-            <View style={styles.style1}>
-                <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <View style={{ width: '70%' }}>
-                        <Text key={index}>{data[index]}</Text>
-                    </View>
-                    <View>
-                        <Text key={index + 1}>Points:-{this.state.scores[index]} </Text>
-                    </View>
-                </View>
-                <TouchableHighlight style={styles.WordsButton}
-                    onPress={() => { this.handlesubmit(index) }}
-                ><Text style={{ color: '#FFFFFF' }}>Hint</Text></TouchableHighlight>
-            </View>
-        )
-    }
-    hintsNotPresentForHistory(data, index, item) {
-        return (
-            <View style={styles.styles2}>
-                <Text key={index}>{data[index]}</Text>
-                <Text key={index + 1} style={{ padding: 3 }}> {item} </Text>
-            </View>
-        )
-    }
+    
     FirstHintToDisplay(data, index, item) {
         return (
             <View style={styles.styles3}>
@@ -120,6 +96,31 @@ class Displayhints extends Component {
                 <View>
                     <Text>{item}</Text>
                 </View>
+            </View>
+        )
+    }
+    hintsNotPresent(data, index) {
+        return (
+            <View style={styles.style1}>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
+                    <View style={{ width: '70%' }}>
+                        <Text key={index}>{data[index]}</Text>
+                    </View>
+                    <View>
+                        <Text key={index + 1}>Points:-{this.state.scores[index]} </Text>
+                    </View>
+                </View>
+                <TouchableHighlight style={styles.WordsButton}
+                    onPress={() => { this.handlesubmit(index) }}
+                ><Text style={{ color: '#FFFFFF' }}>Hint</Text></TouchableHighlight>
+            </View>
+        )
+    }
+    hintsNotPresentForHistory(data, index, item) {
+        return (
+            <View style={styles.styles2}>
+                <Text key={index}>{data[index]}</Text>
+                <Text key={index + 1} style={{ padding: 3 }}> {item} </Text>
             </View>
         )
     }
