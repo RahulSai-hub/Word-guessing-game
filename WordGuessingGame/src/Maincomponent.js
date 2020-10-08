@@ -3,7 +3,7 @@ import { Text,TextInput ,View, StyleSheet } from 'react-native';
 import Fetchword from './Fetchword';
 import UserInput from './UserInput';
 import FetchData from './FetchData';
-import Displayuserinputs from './DisplayUserinputs';
+import DisplayUserInputs from './Displayuserinputs';
 import Historycomponent from './Historycomponent';
 class Maincomponent extends Component {
     constructor(props) {
@@ -232,6 +232,20 @@ class Maincomponent extends Component {
                     <Text style={styles.textTitle}>Guess The Word</Text>
                     <View style={styles.userInputPage}>
                         <UserInput />
+                    </View>
+                    <View style={{ flex: 1, flexDirection: 'column' }}>
+                        <Fetchword setCurrentWord={this.setCurrentWord} />
+                        <View style={{ marginTop: '13%', height: '100%', width: '40%', marginLeft: '60%' }}>
+                            <Historycomponent
+                                color={this.state.colors}
+                                setindexToShowHistory={this.setindexToShowHistory}
+                                skipCurrent={this.skipCurrent}
+                                resetGame={this.resetGame}
+                                completedWordsForHistory={this.state.completedWordsForHistory}
+                                currentWordScore={this.state.currentWordScore}
+                                completedWordsScore={this.state.completedWordsScore}
+                            />
+                        </View>
                     </View>
                 </View>    
             )
