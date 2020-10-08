@@ -35,6 +35,31 @@ class Maincomponent extends Component {
             
         }
     }
+    resetGame = () => {
+        this.setState({
+            allData: [[]],
+            CurrentWord: '',
+            UserAnswer: '',
+            currrentWordAnswerList: [],
+            synonymsAsHints: [],
+            synonymsListCurrent: [],
+            completedCount: -1,
+           
+            RevealedHintsForAll: [[]],
+            completedWordAnswerList: [[]],
+            currentWordHistory: false,
+            colors: [],
+            Score: 0,
+            currentWordScore: 0,
+            completedWordsScore: [],
+            completedWordsForHistory: [],
+            indexToShowHistory: -1,
+            typesofHints: [[]],
+            currentWordAnswerStatus: [],
+            colorsForAnswerList: [[]],
+            statusForInput: ''
+        });
+    }
     setCurrentWord = (word) => {
         if (word != '') {
             this.setState({
