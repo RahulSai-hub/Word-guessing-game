@@ -174,9 +174,9 @@ class Maincomponent extends Component {
         if (this.state.CurrentWord) {
             return (
                 <View style={styles.container}>
-                    <Text style={styles.textScore}>Score:{this.state.Score}</Text>
+                    <Text style={styles.Score}>Score:{this.state.Score}</Text>
                     <Text style={styles.textTitle}>Guess The Word!!</Text>
-                    <View style={styles.userInputPage}>
+                    <View style={styles.userinput}>
                         <UserInput setAnswer={this.setAnswer} />
                         <Text style={{ fontSize: 20 }}>{this.state.statusForInput}</Text>
                     </View>
@@ -227,9 +227,9 @@ class Maincomponent extends Component {
         else {
             return (
                 <View style={styles.container}>
-                    <Text style={styles.textScore}>Score:{this.state.Score}</Text>
+                    <Text style={styles.Score}>Score:{this.state.Score}</Text>
                     <Text style={styles.textTitle}>Guess The Word</Text>
-                    <View style={styles.userInputPage}>
+                    <View style={styles.userinput}>
                         <UserInput />
                     </View>
                     <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -259,7 +259,7 @@ const styles=StyleSheet.create({
         backgroundColor:'darkslategrey',
         borderRadius: 5
     },
-    userInputPage: {
+    userinput: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 'auto',
@@ -284,7 +284,7 @@ const styles=StyleSheet.create({
         borderRadius: 4,
         padding: 3
     },
-    textScore: {
+    Score: {
         textAlign: 'right',
         marginRight: '5%',
         fontSize: 25,
