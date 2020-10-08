@@ -42,7 +42,7 @@ class DisplayUserInputs extends Component {
                 return (
                     <View style={styles.MainContainer}>
                         <View>
-                            <Text style={styles.text}>Guesses:</Text>
+                            <Text style={styles.text}>Guesses-</Text>
                         </View>
                         <View style={styles.Container}>
                             {this.props.userAnswerList.map((item, key) => (
