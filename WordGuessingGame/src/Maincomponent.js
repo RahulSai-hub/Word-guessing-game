@@ -130,9 +130,7 @@ class Maincomponent extends Component {
     setTypesofData = (e) => {
         this.state.typesofHints[this.state.completedCount] = [...e]
     }
-    setRevealHintsForAll = (e) => {
-        this.state.RevealedHintsForAll[this.state.completedCount] = [...e]
-    }
+    
     setindexToShowHistory = (e) => {
         console.log(this.state.allData.length)
         if (e === this.state.completedWordsForHistory.length) {
@@ -169,6 +167,9 @@ class Maincomponent extends Component {
                 statusForInput: ''
             })
         }
+    }
+    setRevealHintsForAll = (e) => {
+        this.state.RevealedHintsForAll[this.state.completedCount] = [...e]
     }
     render(){
         if (this.state.CurrentWord) {
