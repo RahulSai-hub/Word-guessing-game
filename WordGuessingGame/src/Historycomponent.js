@@ -36,10 +36,10 @@ class Historycomponent extends Component {
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <View style={{ justifyContent: 'center', alignItems: 'center', margin: 5 }}>
-                        <Text style={{ fontSize: 25 }}>History</Text>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', margin: 3 }}>
+                        <Text style={{ fontSize: 25,color:'white',fontWeight:'bold',fontFamily:'normal' }}>History</Text>
                     </View>
-                    <Button style={styles.WordsButton} textStyle={{ fontSize: 13, color: '#FFFFFF' }}
+                    <Button style={styles.WordsButton} textStyle={{ fontSize: 13, color: 'white' }}
                         onPress={() => this.skipWord()}>
                         {this.state.skip}
                         </Button>
@@ -73,17 +73,18 @@ const styles = StyleSheet.create({
     container: {
         padding: 20,
         borderRadius: 7,
-        marginTop: 1,
+        marginTop: 40,
         marginLeft: 2,
        
         
     },
     WordsButton: {
-        height: 40,
+        height: 60,
+        margin:3,
         width: 'auto',
         borderRadius: 20,
         borderColor: 'black',
-        backgroundColor: 'green',
+        backgroundColor: 'maroon',
     }
 })
 export default Historycomponent;
